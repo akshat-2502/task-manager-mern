@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const conn = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://khulbeakshat:Akshat%4025@cluster0.rvistdb.mongodb.net/myDB"
-    );
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("Database Connected");
   } catch (error) {
     console.error("Database Not Connected:", error.message);
