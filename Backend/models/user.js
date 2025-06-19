@@ -13,10 +13,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  list: {
-    type: mongoose.Types.ObjectId,
-    ref: "List",
-  },
+  list: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "List",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", userSchema);
